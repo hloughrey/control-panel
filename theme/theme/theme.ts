@@ -2,14 +2,13 @@ import { Theme } from './theme.type';
 
 export const lightTheme: Theme = {
   name: 'Light Theme',
-  background: '#F9F9FB',
+  background: '#ffffff',
   colors: {
-    primary: '#2B2A33;',
-    secondary: '#666',
+    primary: '#000000;',
     border100: '#e8eae9',
-    background100: '#40413F',
-    background200: '#848783',
-    background300: '#32332D',
+    background100: '#f9f9f9',
+    background200: '#ebebeb',
+    background300: '#dbdbdb',
     blue100: '#688BFA',
     grey100: '#fbfbfb',
   },
@@ -20,7 +19,6 @@ export const darkTheme: Theme = {
   background: '#000000',
   colors: {
     primary: '#F9F9FB',
-    secondary: '#cacaca',
     background100: '#40413F',
     background200: '#848783',
     background300: '#32332D',

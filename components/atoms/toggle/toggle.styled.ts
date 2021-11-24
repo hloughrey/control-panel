@@ -18,7 +18,7 @@ export const StyledInput = styled.input`
   white-space: nowrap;
 `;
 
-export const StyledSpan = styled.span<ToggleProperties>`
+export const StyledSpan = styled.span`
   box-sizing: initial;
   display: inline-block;
   outline: 0;
@@ -49,7 +49,7 @@ export const StyledSpan = styled.span<ToggleProperties>`
   ${setCheckedBackground}
 `;
 
-function setChecked({ checked }: WithTheme<ToggleProperties>) {
+function setChecked({ checked }: WithTheme<Pick<ToggleProperties, 'checked'>>) {
   return checked
     ? css`
         left: 50%;
@@ -57,7 +57,9 @@ function setChecked({ checked }: WithTheme<ToggleProperties>) {
     : ``;
 }
 
-function setCheckedBackground({ checked }: WithTheme<ToggleProperties>) {
+function setCheckedBackground({
+  checked,
+}: WithTheme<Pick<ToggleProperties, 'checked'>>) {
   return checked
     ? css`
         background: ${({ theme }) => theme.colors.blue100};

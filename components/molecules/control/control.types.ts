@@ -1,10 +1,6 @@
-export type ControlProperties = {
-  name: string;
-  checked: boolean;
-  additionalInput?: {
-    min: number;
-    max: number;
-    value: number | undefined;
-  };
-  subOptions?: ControlProperties[];
+import { TControl, UpdateAdditionalInput } from '@latitude55/components';
+
+export type ControlProperties = TControl & {
+  onChange: (controlName: string) => void;
+  onChangeAdditionalInputChange: (data: UpdateAdditionalInput) => void;
 };

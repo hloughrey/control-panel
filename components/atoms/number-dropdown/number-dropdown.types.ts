@@ -1,9 +1,6 @@
-import { ChangeEventHandler } from 'react';
+import { UpdateAdditionalInput, AdditionalInput } from '@latitude55/components';
 
-export type NumberDropdownProperties = {
-  min: number;
-  max: number;
-  value: number;
+export type NumberDropdownProperties = AdditionalInput & {
   ariaLabel: string;
-  onChange: ChangeEventHandler<HTMLInputElement>;
+  onChange: (data: UpdateAdditionalInput) => void;
 };

@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react';
+import React, { ChangeEvent, ReactElement } from 'react';
 
 import { NumberDropdownProperties } from './number-dropdown.types';
 import { StyledLabel, StyledSelect } from './number-dropdown.styled';
@@ -10,6 +10,10 @@ export function NumberDropdown({
   ariaLabel,
   onChange,
 }: NumberDropdownProperties): ReactElement {
+  function handleInputChange(event: ChangeEvent<HTMLSelectElement>): void {
+    onChange({ name: event.target.name, value: Number(event.target.value) });
+  }
+
   function createOptions() {
     let options = [];
     for (let i = min; i <= max; i++) {
@@ -25,7 +29,12 @@ export function NumberDropdown({
 
   return (
     <StyledLabel aria-label={ariaLabel || 'number-dropdown'}>
-      <StyledSelect name="cars" id="cars">
+      <StyledSelect
+        name={`${ariaLabel}`}
+        id={`${ariaLabel}`}
+        onChange={handleInputChange}
+        value={value}
+      >
         <option value={0}>0</option>
         {createOptions()}
       </StyledSelect>

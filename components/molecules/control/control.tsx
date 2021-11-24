@@ -19,20 +19,13 @@ export function Control({
   checked,
   additionalInput,
   subOptions,
+  onChange,
+  onChangeAdditionalInputChange,
 }: ControlProperties): ReactElement {
   const [displaySuboptions, setDisplaySuboptions] = useState(false);
 
   function handleSuboptionsDropdownClick() {
     setDisplaySuboptions(!displaySuboptions);
-  }
-
-  function handleOnChange(event: ChangeEvent<HTMLInputElement>): void {
-    console.log(event);
-  }
-  function handleAdditionalInputOnChange(
-    event: ChangeEvent<HTMLInputElement>
-  ): void {
-    console.log(event);
   }
 
   return (
@@ -45,18 +38,12 @@ export function Control({
         <StyledToggleContainer>
           {additionalInput !== undefined ? (
             <NumberDropdown
-              {...{
-                ...additionalInput,
-                ariaLabel: name,
-                onChange: handleAdditionalInputOnChange,
-              }}
+              {...additionalInput}
+              ariaLabel={name}
+              onChange={onChangeAdditionalInputChange}
             />
           ) : undefined}
-          <Toggle
-            ariaLabel={name}
-            checked={checked}
-            onChange={handleOnChange}
-          />
+          <Toggle ariaLabel={name} checked={checked} onChange={onChange} />
           {subOptions !== undefined ? (
             <StyledChevron onClick={handleSuboptionsDropdownClick}>
               {displaySuboptions ? <>&#9650;</> : <>&#9660;</>}
@@ -67,7 +54,11 @@ export function Control({
       {subOptions !== undefined && displaySuboptions
         ? subOptions.map(control => (
             <StyledSubControl key={`${control.name}-control`}>
-              <Control {...control} />
+              <Control
+                {...control}
+                onChange={onChange}
+                onChangeAdditionalInputChange={onChangeAdditionalInputChange}
+              />
             </StyledSubControl>
           ))
         : undefined}

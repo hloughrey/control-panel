@@ -43,27 +43,27 @@ const controls = [
     controls: [
       {
         name: 'Audit log',
-        checked: true,
+        checked: false,
       },
       {
         name: 'Users',
-        checked: true,
+        checked: false,
         subOptions: [
           {
             name: 'Users Add',
-            checked: true,
+            checked: false,
           },
           {
             name: 'Users Delete',
-            checked: true,
+            checked: false,
           },
           {
             name: 'Users Edit',
-            checked: true,
+            checked: false,
           },
           {
             name: 'Max Users',
-            checked: true,
+            checked: false,
             additionalInput: {
               min: 1,
               max: 10,

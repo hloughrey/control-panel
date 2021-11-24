@@ -3,7 +3,6 @@ export type Theme = {
   background: string;
   colors: {
     primary: string;
-    secondary: string;
     background100: string;
     background200: string;
     background300: string;
