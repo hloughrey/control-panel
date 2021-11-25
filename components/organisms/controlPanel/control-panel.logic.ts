@@ -15,6 +15,7 @@ export function updateControl(state, controlName): ControlPanelProperties {
         if (!control.checked) {
           control.subOptions.forEach(subOption => {
             subOption.checked = false;
+            return;
           });
         }
 
@@ -36,13 +37,16 @@ export function updateAdditionalInput(
   state,
   value: UpdateAdditionalInput
 ): ControlPanelProperties {
-  state.forEach(domain => {
+  const newState = JSON.parse(JSON.stringify(state));
+
+  newState.forEach(domain => {
     domain.controls.forEach(control => {
       if (
         Object.keys(control).includes('additionalInput') &&
         control.name === value.name
       ) {
         control.additionalInput.value = value.value;
+        return;
       }
 
       if (Object.keys(control).includes('subOptions')) {
@@ -52,11 +56,12 @@ export function updateAdditionalInput(
             subOption.name === value.name
           ) {
             subOption.additionalInput.value = value.value;
+            return;
           }
         });
       }
     });
   });
 
-  return state;
+  return newState;
 }

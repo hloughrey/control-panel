@@ -52,7 +52,7 @@ export function ControlPanel({
 
   return (
     <StyledWrapper>
-      {controls.map(({ domain, controls, groups }) => (
+      {state.map(({ domain, controls, groups }) => (
         <StyledControl key={`${domain}-control`}>
           <StyledHeading>{domain}</StyledHeading>
           {groups ? (
