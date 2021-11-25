@@ -1,7 +1,7 @@
 import React, { ReactElement, useState } from 'react';
+import { Toggle, NumberDropdown } from '@latitude55/components';
 
 import { ControlProperties } from './control.types';
-import { Toggle, NumberDropdown } from '@latitude55/components';
 import {
   StyledBox,
   StyledChevron,
@@ -44,7 +44,12 @@ export function Control({
           ) : undefined}
           <Toggle ariaLabel={name} checked={checked} onChange={onChange} />
           {subOptions !== undefined ? (
-            <StyledChevron onClick={handleSuboptionsDropdownClick}>
+            <StyledChevron
+              aria-label={`${
+                displaySuboptions ? 'Close' : 'Open'
+              } Child Controls`}
+              onClick={handleSuboptionsDropdownClick}
+            >
               {displaySuboptions ? <>&#9650;</> : <>&#9660;</>}
             </StyledChevron>
           ) : undefined}

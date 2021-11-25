@@ -1,8 +1,8 @@
-import { AppProps } from 'next/app';
+import { ThemeProvider } from 'styled-components';
 import React, { useState } from 'react';
+import { AppProps } from 'next/app';
 
 import { GlobalStyles, darkTheme, lightTheme } from '@latitude55/theme';
-import { ThemeProvider } from 'styled-components';
 
 function CustomApp({ Component, pageProps }: AppProps) {
   const [theme, setTheme] = useState('dark');

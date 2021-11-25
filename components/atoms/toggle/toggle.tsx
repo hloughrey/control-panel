@@ -3,6 +3,10 @@ import React, { ReactElement, MouseEvent } from 'react';
 import { ToggleProperties } from './toggle.types';
 import { StyledInput, StyledLabel, StyledSpan } from './toggle.styled';
 
+function noOp() {
+  return;
+}
+
 export function Toggle({
   ariaLabel,
   onChange,
@@ -13,8 +17,8 @@ export function Toggle({
   }
 
   return (
-    <StyledLabel aria-label={ariaLabel || 'Toggle'} onClick={handleonClick}>
-      <StyledInput type="checkbox" checked={checked} onChange={console.log} />
+    <StyledLabel aria-label={ariaLabel} onClick={handleonClick}>
+      <StyledInput type="checkbox" checked={checked} onChange={noOp} />
       <StyledSpan checked={checked} data-name={ariaLabel} />
     </StyledLabel>
   );

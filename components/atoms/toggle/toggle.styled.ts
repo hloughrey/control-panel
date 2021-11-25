@@ -7,41 +7,41 @@ export const StyledLabel = styled.span`
 `;
 
 export const StyledInput = styled.input`
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 0.1rem;
-  margin: -0.1rem;
-  overflow: hidden;
-  padding: 0;
   position: absolute;
   width: 0.1rem;
+  height: 0.1rem;
+  margin: -0.1rem;
+  padding: 0;
+  overflow: hidden;
   white-space: nowrap;
+  border: 0;
+  clip: rect(0 0 0 0);
 `;
 
 export const StyledSpan = styled.span`
-  box-sizing: initial;
+  position: relative;
   display: inline-block;
-  outline: 0;
+  box-sizing: initial;
   width: 5rem;
   height: 2.5rem;
-  position: relative;
-  cursor: pointer;
-  user-select: none;
   background: ${({ theme }) => theme.colors.background100};
   border-radius: 2rem;
+  outline: 0;
+  cursor: pointer;
   transition: all 0.4s ease;
+  user-select: none;
 
   :after {
-    left: 0;
     position: relative;
+    left: 0;
     display: block;
-    content: '';
     width: 50%;
     height: 100%;
-    border-radius: 2rem;
     background: ${({ theme }) => theme.colors.grey100};
+    border-radius: 2rem;
     transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275),
       padding 0.3s ease, margin 0.3s ease;
+    content: '';
 
     ${setChecked}
   }

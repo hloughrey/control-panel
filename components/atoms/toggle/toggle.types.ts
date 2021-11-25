@@ -1,7 +1,5 @@
-import { ChangeEventHandler } from 'react';
-
 export type ToggleProperties = {
   ariaLabel: string;
-  onChange: ChangeEventHandler<HTMLInputElement>;
+  onChange: (name: string) => void;
   checked: boolean;
 };

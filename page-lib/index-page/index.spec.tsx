@@ -1,9 +1,9 @@
-import { PropsWithChildren } from 'react';
 import { ThemeProvider } from 'styled-components';
+import { PropsWithChildren } from 'react';
 import { render } from '@testing-library/react';
 
-import Index from '../../pages/index';
 import { darkTheme } from '@latitude55/theme';
+import Index from '../../pages/index';
 
 function WithThemeProvider({
   children,

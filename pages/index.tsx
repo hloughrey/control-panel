@@ -1,11 +1,11 @@
-import Head from 'next/head';
 import React, { Fragment } from 'react';
+import Head from 'next/head';
+import { ControlPanel } from '@latitude55/components';
 import {
   StyledHeading,
   StyledMain,
   StyledWrapper,
 } from '../page-lib/index-page';
-import { ControlPanel } from '@latitude55/components';
 
 const controls = [
   {

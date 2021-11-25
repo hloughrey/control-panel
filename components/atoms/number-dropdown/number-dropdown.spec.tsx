@@ -1,4 +1,5 @@
 import { ThemeProvider } from 'styled-components';
+import userEvent from '@testing-library/user-event';
 import { render, screen } from '@testing-library/react';
 
 import { darkTheme } from '@latitude55/theme';
@@ -13,11 +14,11 @@ describe(`NumberDropdown`, () => {
     min: 1,
     max: 10,
     value: undefined,
-    ariaLabel: 'number-dropdown',
+    ariaLabel: 'my-number-dropdown',
     onChange: mockOnChange,
   });
 
-  it('should do something', () => {
+  it('should call "onChange" callback with correct value', () => {
     const properties = partialProperties();
 
     render(
@@ -26,8 +27,11 @@ describe(`NumberDropdown`, () => {
       </ThemeProvider>
     );
 
-    expect(
-      screen.getByText(`Hello, I'm your new Toggle component 👋!`)
-    ).toBeInTheDocument();
+    userEvent.selectOptions(screen.getByLabelText('my-number-dropdown'), ['5']);
+
+    expect(mockOnChange).toHaveBeenCalledWith({
+      name: 'my-number-dropdown',
+      value: 5,
+    });
   });
 });

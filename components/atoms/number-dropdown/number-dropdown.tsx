@@ -1,7 +1,7 @@
 import React, { ChangeEvent, ReactElement } from 'react';
 
 import { NumberDropdownProperties } from './number-dropdown.types';
-import { StyledLabel, StyledSelect } from './number-dropdown.styled';
+import { StyledSelect } from './number-dropdown.styled';
 
 export function NumberDropdown({
   min,
@@ -15,11 +15,11 @@ export function NumberDropdown({
   }
 
   function createOptions() {
-    let options = [];
-    for (let i = min; i <= max; i++) {
+    const options = [];
+    for (let index = min; index <= max; index++) {
       options.push(
-        <option key={`number-dropdown-option-${i}`} value={i}>
-          {i}
+        <option key={`number-dropdown-option-${index}`} value={index}>
+          {index}
         </option>
       );
     }
@@ -28,16 +28,15 @@ export function NumberDropdown({
   }
 
   return (
-    <StyledLabel aria-label={ariaLabel || 'number-dropdown'}>
-      <StyledSelect
-        name={`${ariaLabel}`}
-        id={`${ariaLabel}`}
-        onChange={handleInputChange}
-        value={value}
-      >
-        <option value={0}>0</option>
-        {createOptions()}
-      </StyledSelect>
-    </StyledLabel>
+    <StyledSelect
+      aria-label={ariaLabel}
+      name={`${ariaLabel}`}
+      id={`${ariaLabel}`}
+      onChange={handleInputChange}
+      value={value}
+    >
+      <option value={0}>0</option>
+      {createOptions()}
+    </StyledSelect>
   );
 }

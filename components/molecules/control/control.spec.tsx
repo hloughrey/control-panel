@@ -1,4 +1,5 @@
 import { ThemeProvider } from 'styled-components';
+import userEvent from '@testing-library/user-event';
 import { render, screen } from '@testing-library/react';
 
 import { darkTheme } from '@latitude55/theme';
@@ -11,7 +12,7 @@ describe(`Control`, () => {
   const mockOnChangeAdditionalInputChange = jest.fn();
 
   const partialProperties = setTestProperties<ControlProperties>({
-    name: 'Max Users',
+    name: 'Users',
     checked: false,
     additionalInput: {
       min: 1,
@@ -22,7 +23,7 @@ describe(`Control`, () => {
     onChangeAdditionalInputChange: mockOnChangeAdditionalInputChange,
   });
 
-  it('should do something', () => {
+  it('should render with the correct name', () => {
     const properties = partialProperties();
 
     render(
@@ -31,8 +32,51 @@ describe(`Control`, () => {
       </ThemeProvider>
     );
 
-    expect(
-      screen.getByText(`Hello, I'm your new Control component 👋!`)
-    ).toBeInTheDocument();
+    expect(screen.getByText('Users')).toBeInTheDocument();
+  });
+
+  it('should render with the correct "Toggle" state', () => {
+    const properties = partialProperties();
+
+    render(
+      <ThemeProvider theme={darkTheme}>
+        <Control {...properties} />
+      </ThemeProvider>
+    );
+
+    expect(screen.getByRole('checkbox')).not.toBeChecked();
+  });
+
+  describe('when control has child controls', () => {
+    it('should render with the correct "Toggle" state', () => {
+      const properties = partialProperties({
+        subOptions: [
+          {
+            name: 'Users Add',
+            checked: false,
+          },
+          {
+            name: 'Users Delete',
+            checked: false,
+          },
+        ],
+      });
+
+      render(
+        <ThemeProvider theme={darkTheme}>
+          <Control {...properties} />
+        </ThemeProvider>
+      );
+
+      expect(screen.queryByText('Users Add')).not.toBeInTheDocument();
+      expect(screen.queryByText('Users Delete')).not.toBeInTheDocument();
+
+      userEvent.click(
+        screen.getByRole('button', { name: 'Open Child Controls' })
+      );
+
+      expect(screen.getByText('Users Add')).toBeInTheDocument();
+      expect(screen.getByText('Users Delete')).toBeInTheDocument();
+    });
   });
 });

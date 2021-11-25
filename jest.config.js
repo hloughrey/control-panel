@@ -14,4 +14,12 @@ module.exports = {
     '@latitude55/theme': '<rootDir>/theme',
     '@latitude55/libs': '<rootDir>/libs',
   },
+  coverageThreshold: {
+    global: {
+      statements: 92.22,
+      branches: 90.9,
+      functions: 90.9,
+      lines: 92.04,
+    },
+  },
 };

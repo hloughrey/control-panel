@@ -11,13 +11,13 @@ export const StyledControl = styled.div`
 `;
 
 export const StyledHeading = styled.h1`
-  color: ${({ theme }) => theme.colors.primary};
-  text-transform: uppercase;
-  font-size: 2rem;
   width: 100%;
+  color: ${({ theme }) => theme.colors.primary};
+  font-size: 2rem;
+  text-transform: uppercase;
 `;
 
 export const StyledControlGroup = styled.div`
-  background-color: ${({ theme }) => theme.colors.background300};
   margin: 1rem;
+  background-color: ${({ theme }) => theme.colors.background300};
 `;
