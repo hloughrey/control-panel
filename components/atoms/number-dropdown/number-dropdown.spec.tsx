@@ -2,13 +2,19 @@ import { ThemeProvider } from 'styled-components';
 import { render, screen } from '@testing-library/react';
 
 import { darkTheme } from '@latitude55/theme';
-import { setTestProperties } from '@latitude55/JestSetTestProps';
-import { ToggleProperties } from './toggle.types';
-import { Toggle } from '.';
+import { setTestProperties } from '@latitude55/libs';
+import { NumberDropdownProperties } from './number-dropdown.types';
+import { NumberDropdown } from '.';
 
-describe(`Toggle`, () => {
-  const partialProperties = setTestProperties<ToggleProperties>({
-    componentName: 'Toggle',
+describe(`NumberDropdown`, () => {
+  const mockOnChange = jest.fn();
+
+  const partialProperties = setTestProperties<NumberDropdownProperties>({
+    min: 1,
+    max: 10,
+    value: undefined,
+    ariaLabel: 'number-dropdown',
+    onChange: mockOnChange,
   });
 
   it('should do something', () => {
@@ -16,7 +22,7 @@ describe(`Toggle`, () => {
 
     render(
       <ThemeProvider theme={darkTheme}>
-        <Toggle {...properties} />
+        <NumberDropdown {...properties} />
       </ThemeProvider>
     );
 

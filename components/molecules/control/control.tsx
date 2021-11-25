@@ -1,7 +1,7 @@
-import React, { ChangeEvent, Fragment, ReactElement, useState } from 'react';
+import React, { ReactElement, useState } from 'react';
 
 import { ControlProperties } from './control.types';
-import { Toggle } from '@latitude55/components';
+import { Toggle, NumberDropdown } from '@latitude55/components';
 import {
   StyledBox,
   StyledChevron,
@@ -12,7 +12,6 @@ import {
   StyledSubControl,
   StyledToggleContainer,
 } from './control.styled';
-import { NumberDropdown } from 'components/atoms/number-dropdown';
 
 export function Control({
   name,

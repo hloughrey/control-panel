@@ -1,10 +1,17 @@
 module.exports = {
   displayName: 'contol-panel',
-  preset: '../../jest.preset.js',
+  coverageDirectory: 'coverage',
+  coverageReporters: ['text', 'html', 'cobertura'],
+  preset: 'ts-jest',
+  testEnvironment: 'jest-environment-jsdom',
+  setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
+  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
   transform: {
-    '^(?!.*\\.(js|jsx|ts|tsx|css|json)$)': '@nrwl/react/plugins/jest',
     '^.+\\.[tj]sx?$': 'babel-jest',
   },
-  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
-  coverageDirectory: '../../coverage/apps/marketing',
+  moduleNameMapper: {
+    '@latitude55/components': '<rootDir>/components',
+    '@latitude55/theme': '<rootDir>/theme',
+    '@latitude55/libs': '<rootDir>/libs',
+  },
 };

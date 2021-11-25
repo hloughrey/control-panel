@@ -17,7 +17,8 @@
     "baseUrl": ".",
     "paths": {
       "@latitude55/components": ["components"],
-      "@latitude55/theme": ["theme"]
+      "@latitude55/theme": ["theme"],
+      "@latitude55/libs": ["libs"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

@@ -1,4 +1,4 @@
-import React, { Fragment, ReactElement, ReactNode, useReducer } from 'react';
+import React, { Fragment, ReactElement, useReducer } from 'react';
 
 import {
   ControlActions,

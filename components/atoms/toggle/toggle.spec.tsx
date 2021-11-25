@@ -2,13 +2,17 @@ import { ThemeProvider } from 'styled-components';
 import { render, screen } from '@testing-library/react';
 
 import { darkTheme } from '@latitude55/theme';
-import { setTestProperties } from '@latitude55/JestSetTestProps';
+import { setTestProperties } from '@latitude55/libs';
 import { ToggleProperties } from './toggle.types';
 import { Toggle } from '.';
 
 describe(`Toggle`, () => {
+  const mockOnChange = jest.fn();
+
   const partialProperties = setTestProperties<ToggleProperties>({
-    componentName: 'Toggle',
+    ariaLabel: 'Toggle',
+    onChange: mockOnChange,
+    checked: false,
   });
 
   it('should do something', () => {

@@ -1,8 +1,9 @@
 {
   "presets": [
-    "next/babel",
-    ["@babel/preset-env", { "targets": { "node": "current" } }],
-    "@babel/preset-typescript"
+    "next/babel"
+    // ["@babel/preset-env", { "targets": { "node": "current" } }],
+    // "@babel/preset-typescript"
   ],
-  "plugins": [["styled-components", { "pure": true, "ssr": true }]]
+  // "plugins": [["styled-components", { "pure": true, "ssr": true }]]
+  "plugins": [["babel-plugin-styled-components"]]
 }
