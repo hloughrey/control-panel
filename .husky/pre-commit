@@ -1,4 +1,5 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
+yarn updateTOC --update-only && git add ./README.md
 yarn lint-staged
