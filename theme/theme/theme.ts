@@ -7,21 +7,6 @@ const baseTheme = {
   },
 };
 
-export const lightTheme: Theme = {
-  name: 'Light Theme',
-  background: '#ffffff',
-  colors: {
-    primary: '#000000;',
-    border100: '#e8eae9',
-    background100: '#f9f9f9',
-    background200: '#ebebeb',
-    background300: '#dbdbdb',
-    blue100: '#688BFA',
-    grey100: '#fbfbfb',
-  },
-  ...baseTheme,
-};
-
 export const darkTheme: Theme = {
   name: 'Dark Theme',
   background: '#000000',
