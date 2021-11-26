@@ -1,19 +1,31 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+import { WithTheme } from '@latitude55/theme';
+import { StyledControlProperties } from '@latitude55/components';
+
+function isChildRecord({ child }: WithTheme<StyledControlProperties>) {
+  return child
+    ? css`
+        padding-left: 4rem;
+      `
+    : ``;
+}
 
 export const StyledOutterContainer = styled.div`
-  margin: 1rem;
+  width: 100%;
+  margin: 1rem 0;
   padding-left: 0;
 `;
 
-export const StyledContainer = styled.div`
+export const StyledContainer = styled.div<StyledControlProperties>`
   display: flex;
   flex-direction: row;
   align-items: center;
-  min-width: 40rem;
   padding: 2rem;
   color: ${({ theme }) => theme.colors.primary};
   background-color: ${({ theme }) => theme.colors.background100};
   border-radius: 0.5rem;
+
+  ${isChildRecord}
 `;
 
 export const StyledName = styled.span`
@@ -48,6 +60,5 @@ export const StyledChevron = styled.button`
 
 export const StyledSubControl = styled.li`
   margin-top: -1rem;
-  margin-right: -1rem;
   list-style: none;
 `;

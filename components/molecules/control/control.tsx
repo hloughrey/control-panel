@@ -20,6 +20,7 @@ export function Control({
   subOptions,
   onChange,
   onChangeAdditionalInputChange,
+  child = false,
 }: ControlProperties): ReactElement {
   const [displaySuboptions, setDisplaySuboptions] = useState(false);
 
@@ -28,8 +29,8 @@ export function Control({
   }
 
   return (
-    <StyledOutterContainer as={subOptions ? 'ul' : undefined}>
-      <StyledContainer>
+    <StyledOutterContainer>
+      <StyledContainer child={child}>
         <StyledNameContainer>
           <StyledBox />
           <StyledName>{name}</StyledName>
@@ -62,6 +63,7 @@ export function Control({
                 {...control}
                 onChange={onChange}
                 onChangeAdditionalInputChange={onChangeAdditionalInputChange}
+                child={true}
               />
             </StyledSubControl>
           ))

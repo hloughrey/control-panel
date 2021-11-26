@@ -53,16 +53,18 @@ export function ControlPanel({
   return (
     <StyledWrapper>
       {state.map(({ domain, controls, groups }) => (
-        <StyledControl key={`${domain}-control`}>
+        <Fragment>
           <StyledHeading>{domain}</StyledHeading>
-          {groups ? (
-            <StyledControlGroup>
-              {controls.map(RenderControl)}
-            </StyledControlGroup>
-          ) : (
-            controls.map(RenderControl)
-          )}
-        </StyledControl>
+          <StyledControl key={`${domain}-control`}>
+            {groups ? (
+              <StyledControlGroup>
+                {controls.map(RenderControl)}
+              </StyledControlGroup>
+            ) : (
+              controls.map(RenderControl)
+            )}
+          </StyledControl>
+        </Fragment>
       ))}
     </StyledWrapper>
   );

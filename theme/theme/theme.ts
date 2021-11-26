@@ -1,5 +1,12 @@
 import { Theme } from './theme.type';
 
+const baseTheme = {
+  screen: {
+    tabletLandscapeMinimum: '992px',
+    desktopMinimum: '1200px',
+  },
+};
+
 export const lightTheme: Theme = {
   name: 'Light Theme',
   background: '#ffffff',
@@ -12,6 +19,7 @@ export const lightTheme: Theme = {
     blue100: '#688BFA',
     grey100: '#fbfbfb',
   },
+  ...baseTheme,
 };
 
 export const darkTheme: Theme = {
@@ -26,4 +34,5 @@ export const darkTheme: Theme = {
     blue100: '#688BFA',
     grey100: '#fbfbfb',
   },
+  ...baseTheme,
 };

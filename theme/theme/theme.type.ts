@@ -1,4 +1,11 @@
-export type Theme = {
+type BaseTheme = {
+  screen: {
+    tabletLandscapeMinimum: string;
+    desktopMinimum: string;
+  };
+};
+
+export type Theme = BaseTheme & {
   name: string;
   background: string;
   colors: {

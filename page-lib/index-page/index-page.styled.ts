@@ -11,7 +11,7 @@ export const StyledMain = styled.main`
   flex: 1;
   flex-direction: column;
   align-items: center;
-  padding-bottom: 4.8rem;
+  padding: 1.6rem 1.6rem 4.8rem;
 `;
 
 export const StyledHeading = styled.h2`
